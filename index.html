@@ -59,23 +59,26 @@
             padding: 8rem 0;
         }
 
-        /* --- Hero Section --- */
+        /* --- Hero Section (Fixed Spacing) --- */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 4rem 2rem;
+            gap: 1.5rem;
         }
 
         .hero h1 {
             font-size: clamp(3.5rem, 8vw, 5.5rem);
             font-weight: 700;
             letter-spacing: -2px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             animation: blurFocus 1.8s var(--easing);
+            line-height: 1.1;
         }
 
         .hero p {
@@ -83,6 +86,7 @@
             color: var(--text-muted);
             max-width: 650px;
             animation: blurFocus 2.2s var(--easing);
+            margin-bottom: 1rem;
         }
 
         .accent-text {
@@ -91,7 +95,7 @@
 
         /* --- Buttons --- */
         .btn {
-            margin-top: 2.5rem;
+            display: inline-block;
             padding: 1rem 2.5rem;
             background: transparent;
             border: 1px solid var(--rutgers-scarlet);
@@ -245,7 +249,7 @@
         <div class="container">
             <h1>Dylan Clerkin</h1>
             <p>Accounting at <span class="accent-text">Rutgers University</span>. Dedicated to precision in financial analysis and the strategic evolution of modern audit practices.</p>
-            <a href="#contact" class="btn">SECURE CONSULTATION</a>
+            <a href="#contact" class="btn">CONTACT</a>
         </div>
     </section>
 
@@ -305,7 +309,7 @@
             <div class="glass-card" style="display: inline-block; min-width: 300px;">
                 <p><strong>Email:</strong> dylan.clerkin@rutgers.edu</p>
                 <p><strong>Location:</strong> New Brunswick, NJ</p>
-                <p><strong>LinkedIn:</strong> /in/dylanclerkin</p>
+                <p><strong>LinkedIn:</strong> /in/dylan-clerkin-636870329</p>
             </div>
         </section>
 
