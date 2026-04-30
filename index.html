@@ -15,12 +15,8 @@
             --easing: cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             background-color: var(--bg-dark);
             color: var(--text-silver);
@@ -42,24 +38,13 @@
             transition: opacity 1.2s var(--easing), filter 1.2s var(--easing), transform 1.2s var(--easing);
         }
 
-        .blur-in.active {
-            opacity: 1;
-            filter: blur(0);
-            transform: translateY(0);
-        }
+        .blur-in.active { opacity: 1; filter: blur(0); transform: translateY(0); }
 
         /* --- Layout --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 8rem 0; }
 
-        section {
-            padding: 8rem 0;
-        }
-
-        /* --- Hero Section (Fixed Spacing) --- */
+        /* --- Hero --- */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -76,7 +61,6 @@
             font-size: clamp(3.5rem, 8vw, 5.5rem);
             font-weight: 700;
             letter-spacing: -2px;
-            margin-bottom: 0.5rem;
             animation: blurFocus 1.8s var(--easing);
             line-height: 1.1;
         }
@@ -86,12 +70,9 @@
             color: var(--text-muted);
             max-width: 650px;
             animation: blurFocus 2.2s var(--easing);
-            margin-bottom: 1rem;
         }
 
-        .accent-text {
-            color: var(--rutgers-scarlet);
-        }
+        .accent-text { color: var(--rutgers-scarlet); }
 
         /* --- Buttons --- */
         .btn {
@@ -104,7 +85,6 @@
             font-weight: 500;
             letter-spacing: 1px;
             transition: all 0.4s var(--easing);
-            animation: blurFocus 2.6s var(--easing);
         }
 
         .btn:hover {
@@ -113,44 +93,19 @@
             transform: translateY(-3px);
         }
 
-        /* --- Typography --- */
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--rutgers-scarlet);
-        }
-
-        /* --- About Section & Profile Pic --- */
+        /* --- About Section --- */
         .about-content {
             display: flex;
             align-items: center;
             gap: 4rem;
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             padding: 3rem;
             transition: border-color 0.5s var(--easing);
         }
 
-        .about-content:hover {
-            border-color: var(--rutgers-scarlet);
-        }
-
-        .profile-container {
-            flex-shrink: 0;
-        }
+        .about-content:hover { border-color: var(--rutgers-scarlet); }
 
         .profile-img {
             width: 220px;
@@ -162,13 +117,12 @@
             transition: all 0.6s var(--easing);
         }
 
-        .about-content:hover .profile-img {
-            filter: grayscale(0%);
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(204, 0, 51, 0.2);
-        }
+        .about-content:hover .profile-img { filter: grayscale(0%); transform: scale(1.05); }
 
-        /* --- Cards --- */
+        /* --- General Cards & Sections --- */
+        h2 { font-size: 2.5rem; margin-bottom: 3rem; position: relative; display: inline-block; }
+        h2::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 40px; height: 2px; background: var(--rutgers-scarlet); }
+
         .glass-card {
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
@@ -177,28 +131,16 @@
             transition: all 0.5s var(--easing);
         }
 
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: var(--rutgers-scarlet);
-            transform: translateY(-8px);
+        .glass-card:hover { border-color: var(--rutgers-scarlet); transform: translateY(-8px); }
+
+        .app-highlight {
+            background: linear-gradient(90deg, rgba(204, 0, 51, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+            border-left: 4px solid var(--rutgers-scarlet);
+            margin-bottom: 4rem;
         }
 
-        /* --- Skills Grid --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
 
-        .skill-item h3 {
-            color: var(--rutgers-scarlet);
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* --- Experience --- */
         .experience-item {
             margin-bottom: 4rem;
             border-left: 1px solid var(--glass-border);
@@ -216,28 +158,10 @@
             background: var(--rutgers-scarlet);
         }
 
-        .date {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
+        .date { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
 
-        /* --- Footer --- */
-        footer {
-            padding: 4rem 0;
-            border-top: 1px solid var(--glass-border);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-
-        /* --- Responsive --- */
         @media (max-width: 850px) {
-            .about-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 2rem;
-            }
+            .about-content { flex-direction: column; text-align: center; gap: 2rem; }
             section { padding: 4rem 0; }
             .hero h1 { font-size: 3rem; }
         }
@@ -248,8 +172,8 @@
     <section class="hero">
         <div class="container">
             <h1>Dylan Clerkin</h1>
-            <p>Accounting at <span class="accent-text">Rutgers University</span>. Dedicated to precision in financial analysis and the strategic evolution of modern audit practices.</p>
-            <a href="#contact" class="btn">CONTACT</a>
+            <p>Accounting at <span class="accent-text">Rutgers University</span>. Dedicated to precision in financial analysis and modern technological integration.</p>
+            <a href="#app" class="btn">VIEW PROJECTS</a>
         </div>
     </section>
 
@@ -262,8 +186,17 @@
                     <img src="Assets/ProfilePic.jpeg" alt="Dylan Clerkin" class="profile-img">
                 </div>
                 <div class="about-text">
-                    <p>Equipped with a rigorous academic foundation from Rutgers Business School, I approach accounting not just as a matter of compliance, but as a lens for strategic storytelling. My focus lies in leveraging analytical tools to identify fiscal efficiencies and ensure transparent financial reporting in a rapidly changing global market.</p>
+                    <p>Equipped with a rigorous academic foundation from Rutgers Business School, I approach accounting as a lens for strategic storytelling. My focus lies in leveraging analytical tools to identify fiscal efficiencies and ensure transparent financial reporting.</p>
                 </div>
+            </div>
+        </section>
+
+        <section id="app" class="blur-in app-highlight glass-card">
+            <div style="max-width: 750px;">
+                <h3 style="color: var(--rutgers-scarlet); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 1rem;">Featured Web Application</h3>
+                <h2 style="margin-bottom: 1.5rem;">CPA Prep Tool</h2>
+                <p style="margin-bottom: 2rem; color: var(--text-muted);">A custom-built web application designed to streamline CPA exam preparation. This tool integrates automated tracking with complex financial logic to help candidates master high-level accounting concepts.</p>
+                <a href="Assets/CPA APP/index.html" class="btn" target="_blank">LAUNCH WEB APP</a>
             </div>
         </section>
 
@@ -271,20 +204,16 @@
             <h2>Core Competencies</h2>
             <div class="skills-grid">
                 <div class="skill-item">
-                    <h3>Financial Analysis</h3>
-                    <p>Proficient in interpreting balance sheets, income statements, and cash flow to drive data-backed decisions.</p>
+                    <h3 style="color: var(--rutgers-scarlet); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase;">Financial Analysis</h3>
+                    <p>Proficient in interpreting balance sheets and cash flow to drive data-backed decisions.</p>
                 </div>
                 <div class="skill-item">
-                    <h3>Audit & Risk</h3>
-                    <p>Understanding of internal controls, GAAP standards, and risk assessment frameworks.</p>
+                    <h3 style="color: var(--rutgers-scarlet); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase;">Audit & Risk</h3>
+                    <p>In-depth understanding of GAAP standards and internal control frameworks.</p>
                 </div>
                 <div class="skill-item">
-                    <h3>Technical Stack</h3>
-                    <p>Advanced Excel (VBA/Macros), QuickBooks, SQL, and Bloomberg Terminal operations.</p>
-                </div>
-                <div class="skill-item">
-                    <h3>Taxation</h3>
-                    <p>Knowledgeable in federal and state corporate tax regulations and strategic planning.</p>
+                    <h3 style="color: var(--rutgers-scarlet); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase;">Technical Stack</h3>
+                    <p>Advanced Excel (VBA/Macros), QuickBooks, SQL, and Bloomberg Terminal.</p>
                 </div>
             </div>
         </section>
@@ -299,7 +228,7 @@
             <div class="experience-item">
                 <div class="date">2023 — 2024</div>
                 <h3>Accounting Scholar | Honors Program</h3>
-                <p>Conducted deep-dive research into the implications of AI on automated auditing processes.</p>
+                <p>Conducted research into the implications of AI on automated auditing processes and risk management.</p>
             </div>
         </section>
 
@@ -309,43 +238,32 @@
             <div class="glass-card" style="display: inline-block; min-width: 300px;">
                 <p><strong>Email:</strong> dylan.clerkin@rutgers.edu</p>
                 <p><strong>Location:</strong> New Brunswick, NJ</p>
-                <p><strong>LinkedIn:</strong> /in/dylan-clerkin-636870329</p>
+                <p><strong>LinkedIn:</strong> /in/dylanclerkin</p>
             </div>
         </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Dylan Clerkin. All Rights Reserved. <br> Built with Cinematic Intent.</p>
+        <p style="padding: 4rem 0; text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid var(--glass-border);">
+            &copy; 2026 Dylan Clerkin. All Rights Reserved. <br> Built with Cinematic Intent.
+        </p>
     </footer>
 
     <script>
-        // Intersection Observer for Cinematic Entrances
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('active');
             });
-        }, observerOptions);
+        }, { threshold: 0.15 });
 
-        document.querySelectorAll('.blur-in').forEach((el) => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.blur-in').forEach((el) => observer.observe(el));
 
-        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if(target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+                if(target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
