@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPA ISC Study Hub 🤖</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">CPA ISC Study Hub 🛸</div>
+        <div class="stats-bar">
+            <span class="stat">⚡ Streak: <span id="streak-counter">0</span></span>
+            <span class="stat">🌟 XP: <span id="xp-counter">0</span></span>
+        </div>
+    </header>
+
+    <main id="app-container">
+        <section id="dashboard-view" class="view active">
+            <div class="welcome-banner">
+                <h2>Welcome back, future CPA! 🚀</h2>
+                <p>Systems are online and ready for testing.</p>
+                <button id="start-btn" class="primary-btn">Start Study Session</button>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card mastery-card">
+                    <h3>Domain Mastery 📊</h3>
+                    <div class="progress-item">
+                        <label>Info Systems & Data Management</label>
+                        <div class="progress-bar"><div class="fill" style="width: 0%;" id="prog-area1"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <label>Security, Confidentiality & Privacy</label>
+                        <div class="progress-bar"><div class="fill" style="width: 0%;" id="prog-area2"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <label>SOC Engagements</label>
+                        <div class="progress-bar"><div class="fill" style="width: 0%;" id="prog-area3"></div></div>
+                    </div>
+                </div>
+
+                <div class="card trophy-card">
+                    <h3>Trophy Case 🏆</h3>
+                    <div id="badge-container" class="badge-grid">
+                        <div class="badge locked" title="Automated Auditor">🤖</div>
+                        <div class="badge locked" title="Stellar Accuracy">👽</div>
+                        <div class="badge locked" title="Cyber Sleuth">🕵️‍♂️</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz-view" class="view hidden">
+            <div class="quiz-header">
+                <span id="question-tracker">Question 1 of 10</span>
+                <button id="quit-btn" class="secondary-btn">End Session</button>
+            </div>
+            
+            <div id="question-container" class="card">
+                <div class="tags">
+                    <span id="domain-tag" class="tag">Domain Area</span>
+                    <span id="difficulty-tag" class="tag">Difficulty</span>
+                </div>
+                
+                <h2 id="question-text">Loading secure database... 👾</h2>
+                
+                <div id="options-container" class="options-grid">
+                    </div>
+                
+                <div id="explanation-container" class="explanation-box hidden">
+                    <h3 id="explanation-title"></h3>
+                    <p id="explanation-text"></p>
+                </div>
+            </div>
+
+            <div class="quiz-footer">
+                <button id="submit-btn" class="primary-btn" disabled>Submit Answer</button>
+                <button id="next-btn" class="primary-btn hidden">Next Question ➡️</button>
+            </div>
+        </section>
+
+        <section id="results-view" class="view hidden">
+            <div class="card results-card">
+                <h2>Session Complete! 🏁</h2>
+                <div class="score-display">
+                    <span id="final-score">0%</span>
+                </div>
+                <p id="xp-earned-msg" class="xp-text">+0 XP Earned 🌟</p>
+                <button id="return-home-btn" class="primary-btn">Return to Dashboard</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
