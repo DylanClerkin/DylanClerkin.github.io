@@ -1,6 +1,7 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const scoreDisplay = document.getElementById('scoreDisplay');
+const highScoreDisplay = document.getElementById('highScoreDisplay'); // NEW
 
 // Load Images 
 const playerImg = new Image();
@@ -14,6 +15,10 @@ spikeImg.src = 'spike.png';
 
 // Game Variables
 let score = 0;
+// NEW: Get high score from local storage (or default to 0 if it doesn't exist)
+let highScore = localStorage.getItem('climberHighScore') || 0; 
+highScoreDisplay.innerText = highScore;
+
 let gameOver = false;
 const gravity = 0.4;
 const friction = 0.8;
@@ -32,7 +37,6 @@ function createStartingPlatforms() {
     platforms = [];
     obstacles = [];
     
-    // The starting platform is already marked as scored
     platforms.push({ x: 150, y: 550, width: 60, height: 15, scored: true });
     
     for (let i = 0; i < 6; i++) {
@@ -40,6 +44,21 @@ function createStartingPlatforms() {
         let y = 500 - (i * 90);
         platforms.push({ x: x, y: y, width: 60, height: 15, scored: false });
     }
+}
+
+// NEW: Function to handle High Score logic
+function handleGameOver(reason) {
+    gameOver = true;
+    let message = reason + " Score: " + score;
+    
+    if (score > highScore) {
+        highScore = score;
+        localStorage.setItem('climberHighScore', highScore); // Save to browser
+        message = "NEW HIGH SCORE! 🏆\n" + message;
+    }
+    
+    message += "\nRefresh to play again.";
+    alert(message);
 }
 
 function update() {
@@ -65,13 +84,13 @@ function update() {
                 player.y + player.height > platform.y &&
                 player.y + player.height < platform.y + platform.height + player.dy) {
                 
-                player.dy = bounce; // Bounce
+                player.dy = bounce; 
 
                 // Scoring Logic
                 if (!platform.scored) {
                     score++;
                     scoreDisplay.innerText = score;
-                    platform.scored = true; // Mark as scored so they can't farm points
+                    platform.scored = true; 
                 }
             }
         });
@@ -83,8 +102,9 @@ function update() {
             player.x + player.width > obs.x &&
             player.y < obs.y + obs.height &&
             player.y + player.height > obs.y) {
-            gameOver = true;
-            alert("You hit a spike! Score: " + score + "\nRefresh to play again.");
+            
+            // NEW: Use handleGameOver function
+            handleGameOver("You hit a spike!");
         }
     });
 
@@ -99,7 +119,7 @@ function update() {
             if (platform.y > canvas.height) {
                 platform.y = 0;
                 platform.x = Math.random() * (canvas.width - platform.width);
-                platform.scored = false; // Reset the score flag for the new platform
+                platform.scored = false; 
 
                 // OBSTACLE SPAWN LOGIC: 30% chance
                 if (Math.random() < 0.30) {
@@ -113,7 +133,7 @@ function update() {
             }
         });
 
-        // Move obstacles down with the camera
+        // Move obstacles down
         for (let i = obstacles.length - 1; i >= 0; i--) {
             obstacles[i].y -= player.dy;
             
@@ -125,8 +145,8 @@ function update() {
 
     // Game Over condition (Falling)
     if (player.y > canvas.height) {
-        gameOver = true;
-        alert("You fell! Score: " + score + "\nRefresh to play again.");
+        // NEW: Use handleGameOver function
+        handleGameOver("You fell!");
     }
 }
 
